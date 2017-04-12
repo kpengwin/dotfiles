@@ -18,3 +18,9 @@ set shiftround            " always indent/outdent to the nearest tabstop
 set expandtab             " use spaces instead of tabs
 set smarttab              " use tabs at the start of a line, spaces elsewhere
 set nowrap                " don't wrap text
+set rtp+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
+
+set showtabline=2
+set noshowmode
+
+
