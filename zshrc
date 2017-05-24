@@ -30,3 +30,4 @@ figlet "zsh"
 echo
 fortune
 echo
+export CLICOLOR=1;
