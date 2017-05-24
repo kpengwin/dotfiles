@@ -20,13 +20,14 @@ source /usr/local/share/chruby/chruby.sh
 
 source /usr/local/share/chruby/auto.sh
 
-chruby ruby-2.4.0
+#chruby ruby-2.4.1_1
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-figlet "zsh"
+figlet "applocker exclusions"
 echo
 fortune
 echo
