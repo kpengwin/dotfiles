@@ -6,10 +6,13 @@ colorscheme desert        " set colorscheme
 set number                " show line numbers
 set laststatus=2          " last window always has a statusline
 filetype indent on        " activates indenting for files
-set nohlsearch            " Don't continue to highlight searched phrases.
+
+"nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+set hlsearch              " Continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
-set ruler                 " Always show info along bottom.
+
+
 set autoindent            " auto-indent
 set tabstop=4             " tab spacing
 set softtabstop=4         " unify
@@ -23,4 +26,18 @@ set rtp+=~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/
 set showtabline=2
 set noshowmode
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
+execute pathogen#infect()
+call pathogen#helptags()
+
+map <silent> <C-n> :NERDTreeToggle<CR>
+
+autocmd vimenter * NERDTree
 
