@@ -12,6 +12,7 @@ set hlsearch              " Continue to highlight searched phrases.
 set incsearch             " But do highlight as you type your search.
 set ignorecase            " Make searches case-insensitive.
 
+set backspace=indent,eol,start
 
 set autoindent            " auto-indent
 set tabstop=4             " tab spacing
