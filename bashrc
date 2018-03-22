@@ -5,6 +5,7 @@ alias ls='ls --color=auto'
 alias ll='ls -la'
 alias l.='ls -d .* --color=auto'
 
+export EDITOR="vim"
 #Powerline (Not Working)
 #POWERLINE_PATH=~/Library/Python/2.7/lib/python/site-packages/powerline
 #source $POWERLINE_PATH/bindings/bash/powerline.sh

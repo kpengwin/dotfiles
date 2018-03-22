@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt install vim curl
+#sudo apt install vim curl
 
 #install pathogen, then install pathogen plugins
 mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
