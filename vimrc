@@ -38,10 +38,10 @@ set splitright
 
 execute pathogen#infect()
 call pathogen#helptags()
-let g:airline_theme='badwolf'
+"let g:airline_theme='badwolf'
 
 map <silent> <C-n> :NERDTreeToggle<CR>
-colorscheme badwolf
+"colorscheme badwolf
 
 let g:airline_powerline_fonts = 1
 "autocmd vimenter * NERDTree
