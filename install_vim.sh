@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#commented this out because its distro dependant
 #sudo yum install -y vim curl
 
 #install pathogen, then install pathogen plugins
