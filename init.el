@@ -16,6 +16,23 @@
 (setq default-fill-column 80)		; toggle wrapping text at the 80th character
 (setq initial-scratch-message "Welcome to Emacs") ; print a default message in the empty scratch buffer opened at startup
 
+;;Other startup commands
+(tool-bar-mode -1)
+
+;;aliases
+(defalias 'list-buffers 'ibuffer) ;different interactive buffer option (C-x C-b)
+
+;;custom functions
+(defun open-emacs-config ()
+  "Open my emacs config for editing"
+  (interactive)
+  (find-file-other-window user-init-file))
+
+;;fix path for macos
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin:/Library/TeX/texbin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+(setq exec-path (append exec-path '("/Library/TeX/texbin/")))
+
 ;;Get our package management up and running
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -38,20 +55,26 @@
    "C-s"     'swiper
    "M-x"     'counsel-M-x
    "C-x b"   'ivy-switch-buffer
-   "C-x C-f" 'counsel-find-file))
-
-(general-define-key :prefix "C-c"
+   "C-x C-f" 'counsel-find-file)
+  (general-define-key :prefix "C-c"
 		    "a" 'org-agenda
 		    "e" 'evil-mode
 		    "p" 'show-paren-mode
-		    "k" 'kill-buffer-and-window)
+		    "k" 'kill-buffer-and-window
+		    "cc" 'open-emacs-config))
+
 
 ;;abo-abo packages
 (use-package counsel :ensure t
   :commands (counsel-M-x))
 (use-package swiper :ensure t
   :commands (swiper))
-(use-package ivy :ensure t)
+(use-package ivy :ensure t
+  :init
+  (setq ivy-user-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  :config
+  (ivy-mode 1))
 
 ;;Helps to figure out what is going on
 (use-package which-key :ensure t
@@ -76,6 +99,8 @@
   (transient-mark-mode 1)
   (setq org-todo-keywords
 	'((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE"))))
+(use-package org-bullets :ensure t
+  :config (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 ;;Pretty handy
 (use-package autopair :ensure t
@@ -97,3 +122,11 @@
 
 (use-package try :ensure t)
 
+
+(use-package ace-window :ensure t
+  :init
+  (progn
+    (global-set-key [remap other-window] 'ace-window)
+    (custom-set-faces
+     '(aw-leading-char-face
+       ((t (:inherit ace-jump-face-foreground :height 3.0)))))))
