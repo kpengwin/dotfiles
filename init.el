@@ -14,9 +14,7 @@
 (setq coding-system-for-write 'utf-8 )
 (setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
 (setq default-fill-column 80)		; toggle wrapping text at the 80th character
-(setq initial-scratch-message "Welcome in Emacs") ; print a default message in the empty scratch buffer opened at startup
-
-
+(setq initial-scratch-message "Welcome to Emacs") ; print a default message in the empty scratch buffer opened at startup
 
 ;;Get our package management up and running
 (require 'package)
@@ -30,64 +28,57 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
-;;The idea is to use this to manage other packages
 (eval-when-compile
   (require 'use-package))
 
-(use-package general :ensure t)
+;;General is for keybinds
+(use-package general :ensure t
+  :config
+  (general-define-key
+   "C-s" 'swiper
+   "M-x" 'counsel-M-x))
 
+(general-define-key :prefix "C-c"
+		    "a" 'org-agenda
+		    "e" 'evil-mode
+		    "p" 'show-paren-mode)
 
-(require 'bind-key)
+;;abo-abo packages
+(use-package counsel :ensure t
+  :commands (counsel-M-x))
+(use-package swiper :ensure t
+  :commands (swiper))
+(use-package ivy :ensure t)
 
-;(use-package evil
-;  :ensure t ;;install if not installed
-;  :init )
+;;Helps to figure out what is going on
+(use-package which-key :ensure t
+  :config
+  (which-key-mode))
 
+;;For Lisp coding
+(use-package slime :ensure t
+  :commands (slime)
+  :init
+  (setq inferior-lisp-program "/usr/local/bin/sbcl")
+  (setq slime-contribs '(slime-fancy)))
 
-;; Set your lisp system and, optionally, some contribs
-(setq inferior-lisp-program "/usr/local/bin/clisp")
-(setq slime-contribs '(slime-fancy))
+;;Because it just makes sense
+(use-package evil :ensure t
+  :commands (evil-mode))
 
-;;evil mode
-(require 'evil)
+;;I guess i could be organized
+(use-package org :ensure t
+  :init
+  (setq inhabit-splash-screen t)
+  (transient-mark-mode 1)
+  (setq org-todo-keywords
+	'((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE"))))
 
-;; Org mode config
-(setq inhabit-splash-screen t)
-(transient-mark-mode 1)
-(require 'org)
-(global-set-key "\C-ca" 'org-agenda)
-(setq org-todo-keywords
-      '((sequence "TODO" "IN-PROGRESS" "WAITING" "DONE")))
+;;Pretty handy
+(use-package autopair :ensure t
+  :init
+  (autopair-global-mode 1)
+  (show-paren-mode 1))
 
-;;autopair
-(require 'autopair)
-(autopair-global-mode) ;; to enable in all buffers
-
-
-
-
-
-;;; Autogen stuff, i guess?
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ansi-color-faces-vector
-   [default default default italic underline success warning error])
- '(custom-enabled-themes (quote (wombat)))
- '(custom-safe-themes
-   (quote
-    ("d8dc153c58354d612b2576fea87fe676a3a5d43bcc71170c62ddde4a1ad9e1fb" default)))
- '(org-agenda-files (quote ("~/org-stuff/test.org")))
- '(package-selected-packages (quote (autopair evil abyss-theme slime org)))
- '(xterm-mouse-mode t))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq custom-file (concat user-emacs-directory "/custom.el"))
+(load-file custom-file)
