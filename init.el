@@ -85,3 +85,15 @@
 
 (setq custom-file (concat user-emacs-directory "/custom.el"))
 (load-file custom-file)
+
+
+
+
+
+
+
+
+;;;; ---------- Stuff below this line is temporary -----------
+
+(use-package try :ensure t)
+
