@@ -35,13 +35,16 @@
 (use-package general :ensure t
   :config
   (general-define-key
-   "C-s" 'swiper
-   "M-x" 'counsel-M-x))
+   "C-s"     'swiper
+   "M-x"     'counsel-M-x
+   "C-x b"   'ivy-switch-buffer
+   "C-x C-f" 'counsel-find-file))
 
 (general-define-key :prefix "C-c"
 		    "a" 'org-agenda
 		    "e" 'evil-mode
-		    "p" 'show-paren-mode)
+		    "p" 'show-paren-mode
+		    "k" 'kill-buffer-and-window)
 
 ;;abo-abo packages
 (use-package counsel :ensure t
