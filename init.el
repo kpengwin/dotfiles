@@ -15,8 +15,29 @@
 (setq sentence-end-double-space nil)	; sentence SHOULD end with only a point.
 (setq default-fill-column 80)		; toggle wrapping text at the 80th character
 (setq initial-scratch-message "Welcome to Emacs") ; print a default message in the empty scratch buffer opened at startup
+(setq mouse-autoselect-window 1)
+(setq focus-follows-mouse 1)
 
 ;;Other startup commands
+(if (display-graphic-p)
+    (progn
+      (setq initial-frame-alist
+            '(
+              (tool-bar-lines . 0)
+              (width . 212) ; chars
+              (height . 60) ; lines
+              (left . 50)
+              (top . 50)))
+      (setq default-frame-alist
+            '(
+              (tool-bar-lines . 0)
+              (width . 212)
+              (height . 60)
+              (left . 50)
+              (top . 50))))
+  (progn
+    (setq initial-frame-alist '( (tool-bar-lines . 0)))
+    (setq default-frame-alist '( (tool-bar-lines . 0)))))
 (tool-bar-mode -1)
 
 ;;aliases
@@ -61,7 +82,8 @@
 		    "e" 'evil-mode
 		    "p" 'show-paren-mode
 		    "k" 'kill-buffer-and-window
-		    "cc" 'open-emacs-config))
+		    "cc" 'open-emacs-config
+		    "C-f" 'counsel-recentf))
 
 
 ;;abo-abo packages
@@ -87,6 +109,22 @@
   :init
   (setq inferior-lisp-program "/usr/local/bin/sbcl")
   (setq slime-contribs '(slime-fancy)))
+
+;(add-hook 'slime-mode-hook (lambda ()
+;			     (define-key slime-mode-map "(" 'electric-pair)
+;			     (define-key slime-mode-map "[" 'electric-pair)
+;			     (define-key slime-mode-map "{" 'electric-pair)))
+
+(use-package auto-complete :ensure t
+  :config
+  (ac-config-default))
+
+(use-package ac-slime :ensure t
+  :config
+  (add-hook 'slime-mode-hook 'set-up-slime-ac)
+  (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+  (eval-after-load "auto-complete"
+    '(add-to-list 'ac-modes 'slime-repl-mode)))
 
 ;;Because it just makes sense
 (use-package evil :ensure t
@@ -130,3 +168,15 @@
     (custom-set-faces
      '(aw-leading-char-face
        ((t (:inherit ace-jump-face-foreground :height 3.0)))))))
+
+(use-package smart-mode-line :ensure t
+  :config
+  (sml/setup))
+
+(use-package smart-mode-line-powerline-theme :ensure t)
+
+
+(use-package awesome-tab
+  :load-path "/Users/kbruce7/.emacs.d/awesome-tab/"
+  :config
+  (awesome-tab-mode t))
