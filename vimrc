@@ -47,12 +47,11 @@ let g:airline_powerline_fonts = 0
 "autocmd vimenter * NERDTree
 
 
-inoremap {<CR> {<CR>}<Esc>ko
-inoremap (<CR> (<CR>)<Esc>ko
-inoremap (<space> ()<Esc>i
-inoremap [<space> []<Esc>i
-inoremap {<space> {}<Esc>i
-inoremap <<space> <><Esc>i
-inoremap "<space> ""<Esc>i
+"inoremap {<CR> {<CR>}<Esc>ko
+"inoremap (<CR> (<CR>)<Esc>ko
+"inoremap (<space> ()<Esc>i
+"inoremap [<space> []<Esc>i
+"inoremap {<space> {}<Esc>i
+"inoremap <<space> <><Esc>i
 
 set sm
