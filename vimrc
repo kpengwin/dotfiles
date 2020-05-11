@@ -55,3 +55,5 @@ let g:airline_powerline_fonts = 0
 "inoremap <<space> <><Esc>i
 
 set sm
+
+cnoremap sudow w !sudo tee % >/dev/null
