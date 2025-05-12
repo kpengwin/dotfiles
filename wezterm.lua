@@ -3,10 +3,12 @@ local wezterm = require("wezterm")
 -- Creates a config object which we will be adding our config to
 local config = wezterm.config_builder()
 
+config.enable_wayland = false
+
 -- (This is where our config will go)
 config.color_scheme = "PaperColorDark (Gogh)"
 config.font = wezterm.font({ family = "0xProto Nerd Font" })
-config.font_size = 12
+config.font_size = 13
 
 config.window_decorations = "RESIZE"
 -- Sets the font for the window frame (tab bar)
