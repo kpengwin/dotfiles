@@ -3,20 +3,23 @@ TO_INSTALL="\
 	brightnessctl \
 	cargo \
 	cmake \
-	dunst \
-	firefox \
 	fyi \
+	fzf \
 	ghostty \
 	git \
+	hyprlock \
 	htop \
+	lsd \
 	man \
 	neovim \
 	nodejs \
 	npm \
 	pamixer \
+	powertop \
 	rofi-wayland \
 	sddm \
 	swaybg \
+	swaync \
 	swaylock \
 	tailscale \
 	tldr \
@@ -25,6 +28,7 @@ TO_INSTALL="\
 	unzip \
 	waybar \
 	wl-clipboard \
+	xxd \
 	zip \
 	zsh \
 "
