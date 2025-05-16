@@ -1,13 +1,38 @@
+@define-color bg #100f0f;
+@define-color bgii #1c1b1a;
+@define-color ui #282726;
+@define-color uiii #343331;
+@define-color uiiii #403e3c;
+@define-color txiii #575653;
+@define-color txii #878580;
+@define-color tx #cecdc3;
+@define-color re #d14d41;
+@define-color reii #AF3029;
+@define-color or #da702c;
+@define-color orii #BC5215;
+@define-color ye #d0a215;
+@define-color yeii #AD8301;
+@define-color gr #879a39;
+@define-color grii #66800B;
+@define-color cy #3aa99f;
+@define-color cyii #24837B;
+@define-color bl #4385be;
+@define-color blii #205EA6;
+@define-color pu #8b7ec8;
+@define-color puii #5E409D;
+@define-color ma #ce5d97;
+@define-color maii #A02F6F;
+
 * {
   border: none;
   border-radius: 0;
   min-height: 0;
   font-family: JetBrainsMono Nerd Font;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 window#waybar {
-  background-color: #181825;
+  background-color: @bg;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -30,24 +55,24 @@ window#waybar.hidden {
   padding: 6px 18px;
   margin: 6px 3px;
   border-radius: 4px;
-  background-color: #1e1e2e;
-  color: #cdd6f4;
+  background-color: @bgii;
+  color: @tx;
 }
 
 #workspaces button.active {
-  color: #1e1e2e;
-  background-color: #cdd6f4;
+  color: @tx;
+  background-color: @uiiii;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  color: #1e1e2e;
-  background-color: #cdd6f4;
+  color: @tx;
+  background-color: @uiii;
 }
 
 #workspaces button.urgent {
-  background-color: #f38ba8;
+  background-color: @bgii;
 }
 
 #memory,
@@ -61,8 +86,8 @@ window#waybar.hidden {
   border-radius: 4px;
   margin: 6px 3px;
   padding: 6px 12px;
-  background-color: #1e1e2e;
-  color: #181825;
+  background-color: @bgii;
+  color: @tx;
 }
 
 #custom-power {
@@ -79,55 +104,56 @@ window#waybar.hidden {
 }
 
 #memory {
-  background-color: #fab387;
+  background-color: @orii;
 }
 
 #battery {
-  background-color: #f38ba8;
+  background-color: @blii;
 }
 
 #battery.warning,
 #battery.critical,
 #battery.urgent {
-  background-color: #ff0000;
-  color: #FFFF00;
+  background-color: @reii;
+  color: @tx;
 }
 
 #battery.charging {
-  background-color: #a6e3a1;
-  color: #181825;
+  background-color: @orii;
+  color: @tx;
 }
 
 #backlight {
-  background-color: #fab387;
+  background-color: @bgii;
 }
 
 #wireplumber {
-  background-color: #f9e2af;
+  background-color: @puii;
 }
 
 #network {
-  background-color: #94e2d5;
+  background-color: @grii;
   padding-right: 17px;
 }
 
 #clock {
   font-family: JetBrainsMono Nerd Font;
-  background-color: #cba6f7;
+  color: @bg;
+  background-color: @yeii;
 }
 
 #custom-power {
-  background-color: #f2cdcd;
+  background-color: @maii;
 }
 
 
 tooltip {
   border-radius: 8px;
   padding: 15px;
-  background-color: #131822;
+  background-color: @bgii;
 }
 
 tooltip label {
   padding: 5px;
-  background-color: #131822;
+  background-color: @uiiii;
 }

@@ -1,22 +1,28 @@
 
 TO_INSTALL="\
+	base-devel \
 	brightnessctl \
 	cargo \
 	cmake \
 	fyi \
 	fzf \
 	ghostty \
+	gimp \
 	git \
+	github-cli \
+	go \
 	hyprlock \
 	htop \
+	inkscape \
+	keyd \
 	lsd \
 	man \
 	neovim \
 	nodejs \
 	npm \
 	pamixer \
+	pandoc \
 	powertop \
-	rofi-wayland \
 	sddm \
 	swaybg \
 	swaync \
@@ -26,7 +32,9 @@ TO_INSTALL="\
 	tmux \
 	ttf-font-awesome \
 	unzip \
+	vi \
 	waybar \
+	wget \
 	wl-clipboard \
 	xxd \
 	zip \
