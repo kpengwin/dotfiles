@@ -2,8 +2,11 @@
 TO_INSTALL="\
 	base-devel \
 	brightnessctl \
+	blueman \
 	cargo \
 	cmake \
+	cyme \
+	discord \
 	fyi \
 	fzf \
 	ghostty \
@@ -11,7 +14,10 @@ TO_INSTALL="\
 	git \
 	github-cli \
 	go \
+	grim \
 	hyprlock \
+	hyprpolkitagent \
+	hyprland-qtutils \
 	htop \
 	inkscape \
 	keyd \
@@ -24,6 +30,7 @@ TO_INSTALL="\
 	pandoc \
 	powertop \
 	sddm \
+	slurp \
 	swaybg \
 	swaync \
 	swaylock \
