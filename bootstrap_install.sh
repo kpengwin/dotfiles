@@ -1,12 +1,14 @@
 
 TO_INSTALL="\
 	base-devel \
+	bind \
 	brightnessctl \
 	blueman \
 	cargo \
 	cmake \
 	cyme \
 	discord \
+	freecad \
 	fyi \
 	fzf \
 	ghostty \
@@ -29,6 +31,9 @@ TO_INSTALL="\
 	pamixer \
 	pandoc \
 	powertop \
+	python3 \
+	python-debugpy \
+	rsync \
 	sddm \
 	slurp \
 	swaybg \
@@ -48,6 +53,9 @@ TO_INSTALL="\
 	zsh \
 "
 sudo pacman -S --noconfirm --needed $TO_INSTALL
+
+# Yubikey stuff:
+# libfido2 yubikey-manager gnome-keyring
 
 # https://www.nerdfonts.com/font-downloads
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
